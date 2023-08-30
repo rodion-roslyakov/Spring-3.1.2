@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ShowUser</title>
+    <style>
+        .b4 {
+            background: #333;
+            color: #fc0;
+            font-size: 15pt;
+        }
+
+        .b5 {
+            background: #800000;
+            color: #ffffff;
+            font-size: 15pt;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <p th:text="${user.getFirstName()}">VALUE</p>
+    <p th:text="${user.getSecondName()}">VALUE</p>
+    <p th:text="${user.age}">VALUE</p>
+</div>
+
+<form th:action="@{/users/{id}/edit (id=${user.getId()})}">
+    <input type="submit" class="b4" value="Edit User"/>
+</form>
+<br/>
+<form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
+    <input type="submit" class="b5" value="Delete User"/>
+</form>
+
+</body>
+</html>
